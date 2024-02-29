@@ -3,7 +3,7 @@ const plm = require("passport-local-mongoose");
 mongoose.connect(`mongodb://127.0.0.1:27017/instacloney`);
 
 const userSchema = mongoose.Schema({
-  username:{type:String,require:true},
+  username:{type:String,require:true,unique:true},
   name: {type:String,require:true},
   stories: [{
     type: mongoose.Schema.Types.ObjectId,
