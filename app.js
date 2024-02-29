@@ -4,7 +4,6 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const expressSession = require('express-session');
-const sessionStore = require("connect-mongo")
 const passport = require('passport');
 
 var indexRouter = require('./routes/index');
@@ -20,10 +19,6 @@ app.use(expressSession({
   resave: false,
   saveUninitialized: false,
   secret: "huihui",
-  store:sessionStore.create({
-    mongoUrl:'mongodb://127.0.0.1:27017/instacloney',
-    autoRemove:"disabled"
-  }),
   cookie:{maxAge:24*60*60*1000}
 }));
 app.use(passport.initialize());
